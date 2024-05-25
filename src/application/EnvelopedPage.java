@@ -17,7 +17,7 @@ import javafx.beans.binding.Bindings;
 
 public class EnvelopedPage {
 
-    private final MainPage mainPage;
+	private final MainPage mainPage;
     private final Stage stage;
     private final HostServices hostServices;
     private TextArea mainBox;
