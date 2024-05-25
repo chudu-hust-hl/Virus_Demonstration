@@ -58,7 +58,7 @@ public class MainPage extends Application {
         nonEnvelopedVirusSection.getChildren().add(new Rectangle(200, 200, Color.GREEN)); // Placeholder content
 
         // Button actions
-        envelopedVirusButton.setOnAction(e -> root.setCenter(envelopedVirusSection));
+        envelopedVirusButton.setOnAction(e -> showEnvelopedPage());
         nonEnvelopedVirusButton.setOnAction(e -> root.setCenter(nonEnvelopedVirusSection));
         helpButton.setOnAction(e -> showHelpPage());
 
@@ -76,8 +76,14 @@ public class MainPage extends Application {
 
     private void showHelpPage() {
         primaryStage.close(); // Close the main page
-        HelpPage helpPage = new HelpPage(this);
+        HelpPage helpPage = new HelpPage(this, getHostServices());
         helpPage.show();
+    }
+    
+    private void showEnvelopedPage() {
+    	primaryStage.close(); // Close the main page
+        EnvelopedPage envelopedPage = new EnvelopedPage(this, getHostServices());
+        envelopedPage.show();
     }
 
 
