@@ -33,6 +33,11 @@ public class EnvelopedVirusMenu {
 		}
 	}
 	
+	public void displayAllEnvelopedViruses() {
+        for (EnvelopedVirus virus : virusInMenu) {
+            System.out.println(virus.getName());
+        }
+    }
 	
 	
 	
