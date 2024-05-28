@@ -2,6 +2,7 @@ package application;
 
 import java.util.ArrayList;
 
+import DetailPage.EnvelopedVirusInfo;
 import VirusInformation.EnvelopedVirus;
 import VirusMenu.EnvelopedVirusMenu;
 import javafx.application.HostServices;
@@ -118,6 +119,10 @@ public class EnvelopedPage {
             Button infoButton = new Button("Virus Information");
             infoButton.setMaxWidth(Double.MAX_VALUE);
             infoButton.setMaxHeight(Double.MAX_VALUE);
+            infoButton.setOnAction(e -> {
+                new EnvelopedVirusInfo(virus, this, getHostServices()).show();
+                stage.close(); // Hide the EnvelopedPage
+            });
 
             Button demoButton = new Button("Virus Demonstration");
             demoButton.setMaxWidth(Double.MAX_VALUE);
@@ -152,6 +157,10 @@ public class EnvelopedPage {
         // Hide the current stage and show the main page again
         stage.hide();
         mainPage.returnToMainPage();
+    }
+    
+    public void returnToMenu() {
+        stage.show();
     }
 
     public HostServices getHostServices() {
