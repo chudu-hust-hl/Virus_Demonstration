@@ -39,7 +39,15 @@ public class EnvelopedVirusMenu {
         }
     }
 	
-	
+	public ArrayList<EnvelopedVirus> searchByName(String phrase) {
+        ArrayList<EnvelopedVirus> matchingViruses = new ArrayList<>();
+        for (EnvelopedVirus virus : virusInMenu) {
+            if (virus.getName().toLowerCase().contains(phrase.toLowerCase())) {
+                matchingViruses.add(virus);
+            }
+        }
+        return matchingViruses;
+    }
 	
 	
 	
