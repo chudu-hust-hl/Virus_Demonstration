@@ -35,7 +35,14 @@ public class EnvelopedVirusMenu {
 	
 	public void displayAllEnvelopedViruses() {
         for (EnvelopedVirus virus : virusInMenu) {
-            System.out.println(virus.getName());
+        	System.out.println("Virus Name: " + virus.getName());
+            System.out.println("Genetic Material Type: " + virus.getGeneticMaterialType());
+            System.out.println("Capsid Shape: " + virus.getCapsidShape());
+            System.out.println("Host Range: " + virus.getHostRange());
+            System.out.println("Transmission Mode: " + virus.getTransmissionMode());
+            System.out.println("Incubation Period: " + virus.getIncubationPeriod() + " days");
+            System.out.println("Severity: " + virus.getSeverity());
+            System.out.println("Mutation Rate: " + virus.getMutationRate() + " mutations per cycle");
         }
     }
 	
@@ -47,6 +54,26 @@ public class EnvelopedVirusMenu {
             }
         }
         return matchingViruses;
+    }
+	
+	public ArrayList<EnvelopedVirus> searchByHostType(String hostType) {
+        ArrayList<EnvelopedVirus> searchResults = new ArrayList<>();
+        for (EnvelopedVirus virus : virusInMenu) {
+            if (virus.getHostRange().contains(hostType)) {
+                searchResults.add(virus);
+            }
+        }
+        return searchResults;
+    }
+	
+	public ArrayList<EnvelopedVirus> searchByGeneticMaterial(String geneticMaterialType) {
+        ArrayList<EnvelopedVirus> searchResults = new ArrayList<>();
+        for (EnvelopedVirus virus : virusInMenu) {
+            if (virus.getGeneticMaterialType().equalsIgnoreCase(geneticMaterialType)) {
+                searchResults.add(virus);
+            }
+        }
+        return searchResults;
     }
 	
 	

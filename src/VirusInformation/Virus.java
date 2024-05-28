@@ -1,11 +1,16 @@
 package VirusInformation;
 
+import java.util.List;
+
+import Host.Host;
+import Host.HostList;
+
 public class Virus {
     // Attributes
     private String name;
     private String geneticMaterialType;
     private String capsidShape;
-    private String hostRange;
+    private List<String> hostRange; // Changed to a list of host types
     private String transmissionMode;
     private int incubationPeriod; // in days
     private String severity;
@@ -13,7 +18,7 @@ public class Virus {
 
     // Constructor
     public Virus(String name, String geneticMaterialType, String capsidShape, 
-                 String hostRange, String transmissionMode, int incubationPeriod, 
+                 List<String> hostRange, String transmissionMode, int incubationPeriod, 
                  String severity, double mutationRate) {
         this.name = name;
         this.geneticMaterialType = geneticMaterialType;
@@ -24,6 +29,25 @@ public class Virus {
         this.severity = severity;
         this.mutationRate = mutationRate;
     }
+    
+    public static void addVirusToHost(String virusName, List<String> hostRange, HostList hostList) {
+        for (String hostType : hostRange) {
+            boolean hostExists = false;
+            for (Host host : hostList.getHostList()) {
+                if (host.getHostType().equals(hostType)) {
+                    host.addSusceptibleVirus(virusName);
+                    hostExists = true;
+                    break;
+                }
+            }
+            if (!hostExists) {
+                Host newHost = new Host(hostType);
+                newHost.addSusceptibleVirus(virusName);
+                hostList.getHostList().add(newHost);
+            }
+        }
+    }
+
 
     // Getters and Setters
     public String getName() {
@@ -38,7 +62,7 @@ public class Virus {
         return capsidShape;
     }
 
-    public String getHostRange() {
+    public List<String> getHostRange() {
         return hostRange;
     }
 

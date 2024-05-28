@@ -1,17 +1,20 @@
 package VirusInformation;
 
+import java.util.List;
+
 public class EnvelopedVirus extends Virus {
     private String envelopeComposition; // Additional attribute specific to enveloped viruses
 
     public EnvelopedVirus(String name, String geneticMaterialType, String capsidShape, 
-                          String hostRange, String transmissionMode, int incubationPeriod, 
+                          List<String> hostRange, String transmissionMode, int incubationPeriod, 
                           String severity, double mutationRate, String envelopeComposition) {
         super(name, geneticMaterialType, capsidShape, hostRange, transmissionMode, 
               incubationPeriod, severity, mutationRate);
         this.envelopeComposition = envelopeComposition;
     }
 
-    public String getEnvelopeComposition() {
+
+	public String getEnvelopeComposition() {
         return envelopeComposition;
     }
 

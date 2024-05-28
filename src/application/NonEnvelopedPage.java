@@ -3,6 +3,9 @@ package application;
 import java.util.ArrayList;
 
 import DetailPage.NonEnvelopedVirusInfo;
+import DetailPage.VirusEntryVisualization;
+import Host.Host;
+import Host.HostList;
 import VirusInformation.NonEnvelopedVirus;
 import VirusMenu.NonEnvelopedVirusMenu;
 import javafx.application.HostServices;
@@ -30,14 +33,16 @@ public class NonEnvelopedPage {
     private final Stage stage;
     private final HostServices hostServices;
     private final NonEnvelopedVirusMenu menu;
+    private final HostList hostList;
     private BorderPane root;
 
-    public NonEnvelopedPage(MainPage mainPage, NonEnvelopedVirusMenu menu, HostServices hostServices) {
+    public NonEnvelopedPage(MainPage mainPage, NonEnvelopedVirusMenu menu, HostList hostList, HostServices hostServices) {
         this.mainPage = mainPage;
         this.menu = menu;
         this.hostServices = hostServices;
         this.stage = new Stage();
         this.root = new BorderPane();
+		this.hostList = hostList;
     }
 
     public void show() {
@@ -45,7 +50,7 @@ public class NonEnvelopedPage {
         root.setCenter(createCenter(menu.virusInMenu));
 
         Scene scene = new Scene(root, 900, 600);
-        stage.setTitle("NonEnveloped Virus");
+        stage.setTitle("Enveloped Virus");
         stage.setScene(scene);
         stage.show();
     }
@@ -61,7 +66,7 @@ public class NonEnvelopedPage {
         header.setAlignment(Pos.CENTER);
         header.setPadding(new Insets(10));
 
-        Label title = new Label("NonEnveloped Virus");
+        Label title = new Label("Enveloped Virus");
         title.setFont(new Font(30));
         title.setTextFill(Color.CYAN);
 
@@ -89,6 +94,34 @@ public class NonEnvelopedPage {
 
         searchPanel.getChildren().addAll(searchField, searchButton, returnButton);
         searchBox.getChildren().add(searchPanel);
+        
+        //Buttons to search for virus iffecting these
+        HBox hostButtons = new HBox();
+        hostButtons.setSpacing(10);
+        hostButtons.setAlignment(Pos.CENTER_LEFT);
+
+        for (Host host : hostList.getHostList()) {
+            Button hostButton = new Button(host.getHostType());
+            hostButton.setOnAction(e -> searchByHost(host.getHostType()));
+            hostButtons.getChildren().add(hostButton);
+        }
+
+        searchBox.getChildren().add(hostButtons);
+        
+        //Buttons to search for DNA and RNA virus
+        HBox NAButtons = new HBox();
+        NAButtons.setSpacing(10);
+        NAButtons.setAlignment(Pos.CENTER_LEFT);
+        
+        Button DNAButton = new Button("DNA");
+        NAButtons.getChildren().add(DNAButton);
+        DNAButton.setOnAction(e -> searchByGeneticType("DNA"));
+        
+        Button RNAButton = new Button("RNA");
+        NAButtons.getChildren().add(RNAButton);
+        RNAButton.setOnAction(e -> searchByGeneticType("RNA"));
+        
+        searchBox.getChildren().add(NAButtons);
 
         return searchBox;
     }
@@ -121,12 +154,16 @@ public class NonEnvelopedPage {
             infoButton.setMaxHeight(Double.MAX_VALUE);
             infoButton.setOnAction(e -> {
                 new NonEnvelopedVirusInfo(virus, this, getHostServices()).show();
-                stage.close(); // Hide the EnvelopedPage
+                stage.close(); // Hide the NonEnvelopedPage
             });
 
             Button demoButton = new Button("Virus Demonstration");
             demoButton.setMaxWidth(Double.MAX_VALUE);
             demoButton.setMaxHeight(Double.MAX_VALUE);
+            demoButton.setOnAction(e -> {
+                new VirusEntryVisualization(virus, null, this, getHostServices()).show();
+                stage.close(); // Hide the NonEnvelopedPage
+            });
 
             cell.getChildren().addAll(nameLabel, infoButton, demoButton);
             centerGrid.add(cell, col, row);
@@ -149,10 +186,22 @@ public class NonEnvelopedPage {
 
 
     private void searchVirus(String virusName) {
-    	ArrayList<NonEnvelopedVirus> searchResults = menu.searchByName(virusName);
+        ArrayList<NonEnvelopedVirus> searchResults = menu.searchByName(virusName);
         root.setCenter(createCenter(searchResults));
     }
-
+    
+    
+    private void searchByHost(String hostType) {
+    	ArrayList<NonEnvelopedVirus> searchResults = menu.searchByHostType(hostType);
+    	root.setCenter(createCenter(searchResults));
+    }
+    
+    private void searchByGeneticType(String GenType) {
+    	ArrayList<NonEnvelopedVirus> searchResults = menu.searchByGeneticMaterial(GenType);
+    	root.setCenter(createCenter(searchResults));
+    }
+    
+    
     private void returnToMain() {
         // Hide the current stage and show the main page again
         stage.hide();
@@ -160,7 +209,7 @@ public class NonEnvelopedPage {
     }
     
     public void returnToMenu() {
-       stage.show();
+        stage.show();
     }
 
     public HostServices getHostServices() {
