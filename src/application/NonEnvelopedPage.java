@@ -1,130 +1,161 @@
 package application;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Container;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridLayout;
-import java.awt.Toolkit;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.*;
 
+import VirusInformation.EnvelopedVirus;
 import VirusInformation.NonEnvelopedVirus;
 import VirusMenu.NonEnvelopedVirusMenu;
 import javafx.application.HostServices;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
+import javafx.stage.Stage;
 
+public class NonEnvelopedPage {
 
-public class NonEnvelopedPage extends JFrame {
-    private NonEnvelopedVirusMenu menu;
     private final MainPage mainPage;
+    private final Stage stage;
     private final HostServices hostServices;
+    private final NonEnvelopedVirusMenu menu;
+    private BorderPane root;
 
     public NonEnvelopedPage(MainPage mainPage, NonEnvelopedVirusMenu menu, HostServices hostServices) {
-        this.mainPage = new MainPage();
-		this.menu = menu;
-		this.hostServices = null;
-
-        Container cp = getContentPane();
-        cp.setLayout(new BorderLayout());
-        cp.add(createNorth(), BorderLayout.NORTH);
-        cp.add(createCenter(), BorderLayout.CENTER);
-
-        setTitle("NonEnveloped Virus");
-        setSize(900, 600);
-        setLocationRelativeTo(null);
-        setVisible(true);
+        this.mainPage = mainPage;
+        this.menu = menu;
+        this.hostServices = hostServices;
+        this.stage = new Stage();
+        this.root = new BorderPane();
     }
 
-    JPanel createNorth() {
-        JPanel north = new JPanel();
-        north.setLayout(new BoxLayout(north, BoxLayout.Y_AXIS));
-        north.add(createHeader());
-        north.add(createSearchAndReturnBox());
+    public void show() {
+        root.setTop(createNorth());
+        root.setCenter(createCenter(menu.virusInMenu));
+
+        Scene scene = new Scene(root, 900, 600);
+        stage.setTitle("NonEnveloped Virus");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    private VBox createNorth() {
+        VBox north = new VBox();
+        north.getChildren().addAll(createHeader(), createSearchAndReturnBox());
         return north;
     }
 
-    JPanel createHeader() {
-        JPanel header = new JPanel();
-        header.setLayout(new BoxLayout(header, BoxLayout.X_AXIS));
-        JLabel title = new JLabel("NonEnveloped Virus");
-        title.setFont(new Font(title.getFont().getName(), Font.PLAIN, 30));
-        title.setForeground(Color.CYAN);
-        header.add(Box.createRigidArea(new Dimension(10, 10)));
-        header.add(title);
-        header.add(Box.createHorizontalGlue());
-        header.add(Box.createRigidArea(new Dimension(10, 10)));
+    private HBox createHeader() {
+        HBox header = new HBox();
+        header.setAlignment(Pos.CENTER);
+        header.setPadding(new Insets(10));
+
+        Label title = new Label("NonEnveloped Virus");
+        title.setFont(new Font(30));
+        title.setTextFill(Color.CYAN);
+
+        header.getChildren().add(title);
         return header;
     }
 
-    JPanel createSearchAndReturnBox() {
-    	JPanel searchPanel = new JPanel();
-        searchPanel.setLayout(new BorderLayout());
+    private VBox createSearchAndReturnBox() {
+        VBox searchBox = new VBox();
+        searchBox.setPadding(new Insets(10));
 
-        // Create the search box
-        JTextField searchBox = new JTextField();
-        searchBox.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
+        HBox searchPanel = new HBox();
+        searchPanel.setSpacing(10);
+        searchPanel.setAlignment(Pos.CENTER);
 
-        // Create the search button
-        JButton searchButton = new JButton("Search");
-        searchButton.addActionListener(e -> searchVirus(searchBox.getText()));
+        TextField searchField = new TextField();
+        searchField.setPromptText("Search...");
+        HBox.setHgrow(searchField, Priority.ALWAYS);
 
-        // Create the return to main button
-        JButton returnButton = new JButton("Return to Main");
-        returnButton.addActionListener(e -> returnToMain());
+        Button searchButton = new Button("Search");
+        searchButton.setOnAction(e -> searchVirus(searchField.getText()));
 
-        // Add components to the search panel
-        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        buttonPanel.add(returnButton);
+        Button returnButton = new Button("Return to Main");
+        returnButton.setOnAction(e -> returnToMain());
 
-        searchPanel.add(searchBox, BorderLayout.CENTER);
-        searchPanel.add(searchButton, BorderLayout.LINE_END);
-        searchPanel.add(buttonPanel, BorderLayout.PAGE_END);
+        searchPanel.getChildren().addAll(searchField, searchButton, returnButton);
+        searchBox.getChildren().add(searchPanel);
 
-        // Set the preferred width of the search panel to one-third of the page width
-        int screenWidth = Toolkit.getDefaultToolkit().getScreenSize().width;
-        int searchPanelWidth = screenWidth / 3;
-        searchPanel.setPreferredSize(new Dimension(searchPanelWidth, 50));
-
-        return searchPanel;
+        return searchBox;
     }
 
-    JPanel createCenter() {
-        JPanel center = new JPanel();
-        center.setLayout(new GridLayout(0, 3, 2, 2)); // Dynamically set rows, fixed 3 columns
-
-        for (NonEnvelopedVirus virus : menu.virusInMenu) {
-        	String VirusLabel = virus.getName();
-            JLabel label = new JLabel(VirusLabel);
-            label.setOpaque(true);
-            label.setBackground(Color.LIGHT_GRAY);
-            label.setHorizontalAlignment(SwingConstants.CENTER);
-            center.add(label);
+    private ScrollPane createCenter(ArrayList<NonEnvelopedVirus> virusList) {
+        GridPane centerGrid = new GridPane();
+        centerGrid.setHgap(10);
+        centerGrid.setVgap(10);
+        centerGrid.setPadding(new Insets(10));
+        centerGrid.setAlignment(Pos.TOP_CENTER);
+        
+        for (int i = 0; i < 3; i++) {
+            ColumnConstraints colConst = new ColumnConstraints();
+            colConst.setPercentWidth(100.0 / 3);  // Equal width for 3 columns
+            centerGrid.getColumnConstraints().add(colConst);
         }
 
-        JScrollPane scrollPane = new JScrollPane(center);
-        JPanel centerPanel = new JPanel(new BorderLayout());
-        centerPanel.add(scrollPane, BorderLayout.CENTER);
-        return centerPanel;
+        int col = 0, row = 0;
+        for (NonEnvelopedVirus virus : virusList) {
+            VBox cell = new VBox();
+            cell.setSpacing(10);
+            cell.setAlignment(Pos.CENTER);
+            cell.setStyle("-fx-background-color: lightgray; -fx-padding: 10;");
+
+            Label nameLabel = new Label(virus.getName());
+            nameLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+
+            Button infoButton = new Button("Virus Information");
+            infoButton.setMaxWidth(Double.MAX_VALUE);
+            infoButton.setMaxHeight(Double.MAX_VALUE);
+
+            Button demoButton = new Button("Virus Demonstration");
+            demoButton.setMaxWidth(Double.MAX_VALUE);
+            demoButton.setMaxHeight(Double.MAX_VALUE);
+
+            cell.getChildren().addAll(nameLabel, infoButton, demoButton);
+            centerGrid.add(cell, col, row);
+            GridPane.setHgrow(cell, Priority.ALWAYS);
+            GridPane.setVgrow(cell, Priority.ALWAYS);
+
+            col++;
+            if (col == 3) {
+                col = 0;
+                row++;
+            }
+        }
+
+        ScrollPane scrollPane = new ScrollPane(centerGrid);
+        scrollPane.setFitToWidth(true);
+        scrollPane.setPadding(new Insets(10));
+        scrollPane.setFitToHeight(true);
+        return scrollPane;
     }
+
 
     private void searchVirus(String virusName) {
-        System.out.println("Searching for virus: " + virusName);
-        // Implement your search logic here
+    	ArrayList<NonEnvelopedVirus> searchResults = menu.searchByName(virusName);
+        root.setCenter(createCenter(searchResults));
     }
-    
+
     private void returnToMain() {
-        // Hide or close the current frame
-        dispose(); // For closing
-
-        // Show the main page again
-        //mainPage.returnToMainPage();
+        // Hide the current stage and show the main page again
+        stage.hide();
+        mainPage.returnToMainPage();
     }
 
-	public HostServices getHostServices() {
-		return hostServices;
-	}
+    public HostServices getHostServices() {
+        return hostServices;
+    }
 }

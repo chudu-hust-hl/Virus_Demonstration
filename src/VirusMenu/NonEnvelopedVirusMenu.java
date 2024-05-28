@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import VirusInformation.EnvelopedVirus;
 import VirusInformation.NonEnvelopedVirus;
 
 public class NonEnvelopedVirusMenu {
@@ -34,7 +35,15 @@ public class NonEnvelopedVirusMenu {
 	}
 	
 	
-	
+	public ArrayList<NonEnvelopedVirus> searchByName(String phrase) {
+        ArrayList<NonEnvelopedVirus> matchingViruses = new ArrayList<>();
+        for (NonEnvelopedVirus virus : virusInMenu) {
+            if (virus.getName().toLowerCase().contains(phrase.toLowerCase())) {
+                matchingViruses.add(virus);
+            }
+        }
+        return matchingViruses;
+    }
 	
 	
 	

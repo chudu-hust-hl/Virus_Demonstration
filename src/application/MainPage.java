@@ -1,7 +1,12 @@
 package application;
 
+import javax.swing.JFrame;
+
+import VirusInformation.EnvelopedVirus;
+import VirusInformation.NonEnvelopedVirus;
+import VirusMenu.EnvelopedVirusMenu;
+import VirusMenu.NonEnvelopedVirusMenu;
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -10,16 +15,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-
-import javax.swing.JFrame;
-
-import VirusInformation.EnvelopedVirus;
-import VirusInformation.NonEnvelopedVirus;
-import VirusMenu.EnvelopedVirusMenu;
-import VirusMenu.NonEnvelopedVirusMenu;
 
 public class MainPage extends Application {
 
@@ -96,18 +92,16 @@ public class MainPage extends Application {
     	primaryStage.close(); // Close the main page
     	EnvelopedVirusMenu EVmenu = new EnvelopedVirusMenu(); 
     	EVmenuStore(EVmenu);
-    	javax.swing.SwingUtilities.invokeLater(() -> {
-            new EnvelopedPage(this, EVmenu, getHostServices());
-        });
+    	EnvelopedPage EVpage = new EnvelopedPage(this, EVmenu, getHostServices()); 
+    	EVpage.show();
     }
     
     private void showNonEnvelopedPage() {
     	primaryStage.close(); // Close the main page
     	NonEnvelopedVirusMenu NEVmenu = new NonEnvelopedVirusMenu(); 
     	NEVmenuStore(NEVmenu);
-    	javax.swing.SwingUtilities.invokeLater(() -> {
-            new NonEnvelopedPage(this, NEVmenu, getHostServices());
-        });
+    	NonEnvelopedPage NEVpage = new NonEnvelopedPage(this, NEVmenu, getHostServices()); 
+    	NEVpage.show();
     }
 
 
