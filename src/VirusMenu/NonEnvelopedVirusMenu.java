@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import VirusInformation.EnvelopedVirus;
 import VirusInformation.NonEnvelopedVirus;
 
 public class NonEnvelopedVirusMenu {
