@@ -3,6 +3,9 @@ package application;
 import java.util.ArrayList;
 
 import DetailPage.EnvelopedVirusInfo;
+import DetailPage.VirusEntryVisualization;
+import Host.Host;
+import Host.HostList;
 import VirusInformation.EnvelopedVirus;
 import VirusMenu.EnvelopedVirusMenu;
 import javafx.application.HostServices;
@@ -30,14 +33,16 @@ public class EnvelopedPage {
     private final Stage stage;
     private final HostServices hostServices;
     private final EnvelopedVirusMenu menu;
+    private final HostList hostList;
     private BorderPane root;
 
-    public EnvelopedPage(MainPage mainPage, EnvelopedVirusMenu menu, HostServices hostServices) {
+    public EnvelopedPage(MainPage mainPage, EnvelopedVirusMenu menu, HostList hostList, HostServices hostServices) {
         this.mainPage = mainPage;
         this.menu = menu;
         this.hostServices = hostServices;
         this.stage = new Stage();
         this.root = new BorderPane();
+		this.hostList = hostList;
     }
 
     public void show() {
@@ -89,6 +94,34 @@ public class EnvelopedPage {
 
         searchPanel.getChildren().addAll(searchField, searchButton, returnButton);
         searchBox.getChildren().add(searchPanel);
+        
+        //Buttons to search for virus iffecting these
+        HBox hostButtons = new HBox();
+        hostButtons.setSpacing(10);
+        hostButtons.setAlignment(Pos.CENTER_LEFT);
+
+        for (Host host : hostList.getHostList()) {
+            Button hostButton = new Button(host.getHostType());
+            hostButton.setOnAction(e -> searchByHost(host.getHostType()));
+            hostButtons.getChildren().add(hostButton);
+        }
+
+        searchBox.getChildren().add(hostButtons);
+        
+        //Buttons to search for DNA and RNA virus
+        HBox NAButtons = new HBox();
+        NAButtons.setSpacing(10);
+        NAButtons.setAlignment(Pos.CENTER_LEFT);
+        
+        Button DNAButton = new Button("DNA");
+        NAButtons.getChildren().add(DNAButton);
+        DNAButton.setOnAction(e -> searchByGeneticType("DNA"));
+        
+        Button RNAButton = new Button("RNA");
+        NAButtons.getChildren().add(RNAButton);
+        RNAButton.setOnAction(e -> searchByGeneticType("RNA"));
+        
+        searchBox.getChildren().add(NAButtons);
 
         return searchBox;
     }
@@ -127,6 +160,10 @@ public class EnvelopedPage {
             Button demoButton = new Button("Virus Demonstration");
             demoButton.setMaxWidth(Double.MAX_VALUE);
             demoButton.setMaxHeight(Double.MAX_VALUE);
+            demoButton.setOnAction(e -> {
+                new VirusEntryVisualization(virus, this, null, getHostServices()).show();
+                stage.close(); // Hide the EnvelopedPage
+            });
 
             cell.getChildren().addAll(nameLabel, infoButton, demoButton);
             centerGrid.add(cell, col, row);
@@ -152,7 +189,19 @@ public class EnvelopedPage {
         ArrayList<EnvelopedVirus> searchResults = menu.searchByName(virusName);
         root.setCenter(createCenter(searchResults));
     }
-
+    
+    
+    private void searchByHost(String hostType) {
+    	ArrayList<EnvelopedVirus> searchResults = menu.searchByHostType(hostType);
+    	root.setCenter(createCenter(searchResults));
+    }
+    
+    private void searchByGeneticType(String GenType) {
+    	ArrayList<EnvelopedVirus> searchResults = menu.searchByGeneticMaterial(GenType);
+    	root.setCenter(createCenter(searchResults));
+    }
+    
+    
     private void returnToMain() {
         // Hide the current stage and show the main page again
         stage.hide();

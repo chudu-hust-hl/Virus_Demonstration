@@ -1,5 +1,7 @@
 package VirusMenuTest;
 
+import java.util.Arrays;
+
 import VirusInformation.NonEnvelopedVirus;
 import VirusMenu.NonEnvelopedVirusMenu;
 
@@ -9,7 +11,7 @@ public class NonEnvelopedMenuTest {
 		NonEnvelopedVirusMenu menu = new NonEnvelopedVirusMenu();
 
 		NonEnvelopedVirus poliovirus = new NonEnvelopedVirus(
-	            "Poliovirus", "RNA", "icosahedral", "humans", 
+	            "Poliovirus", "RNA", "icosahedral", Arrays.asList("Human"), 
 	            "fecal-oral", 7, "severe", 0.002
 	        );
 		

@@ -46,7 +46,7 @@ public class NonEnvelopedVirusInfo{
         infoGrid.add(new Label(virus.getCapsidShape()), 1, 2);
 
         infoGrid.add(new Label("Host Range:"), 0, 3);
-        infoGrid.add(new Label(virus.getHostRange()), 1, 3);
+        infoGrid.add(new Label(virus.getHostRange().toString()), 1, 3);
 
         infoGrid.add(new Label("Transmission Mode:"), 0, 4);
         infoGrid.add(new Label(virus.getTransmissionMode()), 1, 4);

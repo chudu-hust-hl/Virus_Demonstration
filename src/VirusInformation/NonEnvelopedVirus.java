@@ -1,10 +1,12 @@
 package VirusInformation;
 
+import java.util.List;
+
 public class NonEnvelopedVirus extends Virus {
     // Additional attributes or methods specific to non-enveloped viruses can be added here
 
     public NonEnvelopedVirus(String name, String geneticMaterialType, String capsidShape, 
-                             String hostRange, String transmissionMode, int incubationPeriod, 
+                             List<String> hostRange, String transmissionMode, int incubationPeriod, 
                              String severity, double mutationRate) {
         super(name, geneticMaterialType, capsidShape, hostRange, transmissionMode, 
               incubationPeriod, severity, mutationRate);

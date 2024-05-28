@@ -1,22 +1,18 @@
 package Host;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Host {
     private String hostType;
-    private String commonName;
-    private List<String> susceptibleViruses;
+    private ArrayList<String> susceptibleViruses;
 
-    public Host(String hostType, String commonName) {
+    public Host(String hostType) {
         this.hostType = hostType;
-        this.commonName = commonName;
         this.susceptibleViruses = new ArrayList<>();
     }
 
     public void displayHostTypeInfo() {
         System.out.println("Host Type: " + hostType);
-        System.out.println("Common Name: " + commonName);
         System.out.println("Susceptible Viruses: " + susceptibleViruses);
     }
 
@@ -31,7 +27,6 @@ public class Host {
     }
 
     // Getters and Setters
-
     public String getHostType() {
         return hostType;
     }
@@ -40,19 +35,31 @@ public class Host {
         this.hostType = hostType;
     }
 
-    public String getCommonName() {
-        return commonName;
-    }
-
-    public void setCommonName(String commonName) {
-        this.commonName = commonName;
-    }
-
-    public List<String> getSusceptibleViruses() {
+    public ArrayList<String> getSusceptibleViruses() {
         return susceptibleViruses;
     }
 
-    public void setSusceptibleViruses(List<String> susceptibleViruses) {
+    public void setSusceptibleViruses(ArrayList<String> susceptibleViruses) {
         this.susceptibleViruses = susceptibleViruses;
     }
+
+    
+    
+    /*public static void main(String[] args) {
+        // Create instances of Host
+        Host human = new Host("Human");
+        Host bird = new Host("Bird");
+        Host primate = new Host("Primate");
+        Host mosquito = new Host("Mosquito");
+        Host bat = new Host("Bat");
+
+        // Display information
+        human.displayHostTypeInfo();
+        bird.displayHostTypeInfo();
+        primate.displayHostTypeInfo();
+        mosquito.displayHostTypeInfo();
+        bat.displayHostTypeInfo();
+    }*/
+
+
 }

@@ -1,7 +1,10 @@
 package application;
 
+import java.util.Arrays;
+
 import javax.swing.JFrame;
 
+import Host.HostList;
 import VirusInformation.EnvelopedVirus;
 import VirusInformation.NonEnvelopedVirus;
 import VirusMenu.EnvelopedVirusMenu;
@@ -21,6 +24,9 @@ public class MainPage extends Application {
 
 	private Stage primaryStage;
     private JFrame mainFrame; // Reference to the main Swing frame
+    
+    //Initialize the HostList
+    public static HostList hostList = new HostList();
 
     // JavaFX version of setVisible method
     public void setVisible(boolean visible) {
@@ -64,6 +70,7 @@ public class MainPage extends Application {
         envelopedVirusButton.setStyle(buttonStyle);
         nonEnvelopedVirusButton.setStyle(buttonStyle);
         helpButton.setStyle(buttonStyle);
+        
 
         // Button actions
         envelopedVirusButton.setOnAction(e -> showEnvelopedPage());
@@ -92,7 +99,7 @@ public class MainPage extends Application {
     	primaryStage.close(); // Close the main page
     	EnvelopedVirusMenu EVmenu = new EnvelopedVirusMenu(); 
     	EVmenuStore(EVmenu);
-    	EnvelopedPage EVpage = new EnvelopedPage(this, EVmenu, getHostServices()); 
+    	EnvelopedPage EVpage = new EnvelopedPage(this, EVmenu, hostList, getHostServices()); 
     	EVpage.show();
     }
     
@@ -100,7 +107,7 @@ public class MainPage extends Application {
     	primaryStage.close(); // Close the main page
     	NonEnvelopedVirusMenu NEVmenu = new NonEnvelopedVirusMenu(); 
     	NEVmenuStore(NEVmenu);
-    	NonEnvelopedPage NEVpage = new NonEnvelopedPage(this, NEVmenu, getHostServices()); 
+    	NonEnvelopedPage NEVpage = new NonEnvelopedPage(this, NEVmenu, hostList, getHostServices()); 
     	NEVpage.show();
     }
 
@@ -112,81 +119,86 @@ public class MainPage extends Application {
     
     public static void EVmenuStore(EnvelopedVirusMenu EVmenu) {
         
-        EnvelopedVirus herpesSimplexVirus = new EnvelopedVirus(
-            "Herpes Simplex Virus", "DNA", "icosahedral", "humans", 
-            "contact", 2, "mild to severe", 0.001, 
-            "lipid envelope with glycoprotein spikes (gB, gD, gH, gL)"
+    	EnvelopedVirus herpesSimplexVirus = new EnvelopedVirus(
+                "Herpes Simplex Virus", "DNA", "icosahedral", 
+                Arrays.asList("Human"), "contact", 2, "mild to severe", 0.001, 
+                "lipid envelope with glycoprotein spikes (gB, gD, gH, gL)"
         );
         EVmenu.addEnvelopedVirus(herpesSimplexVirus);
 
         EnvelopedVirus influenzaVirus = new EnvelopedVirus(
-            "Influenza Virus", "RNA", "segmented", "humans", 
-            "aerosol", 1, "mild to severe", 0.01, 
-            "lipid envelope with glycoprotein spikes (hemagglutinin (HA) and neuraminidase (NA))"
+                "Influenza Virus", "RNA", "segmented", 
+                Arrays.asList("Human", "Bird"), "airborne", 1, "moderate to severe", 0.01, 
+                "lipid envelope with hemagglutinin (HA) and neuraminidase (NA)"
         );
         EVmenu.addEnvelopedVirus(influenzaVirus);
 
         EnvelopedVirus hiv = new EnvelopedVirus(
-            "HIV (Human Immunodeficiency Virus)", "RNA", "complex", "humans", 
-            "bodily fluids", 3, "severe", 0.02, 
-            "lipid envelope with glycoprotein spikes (gp120 and gp41)"
+                "HIV", "RNA", "complex", 
+                Arrays.asList("Human", "Primate"), "contact", 14, "severe", 0.003, 
+                "lipid envelope with glycoprotein spikes (gp120, gp41)"
         );
         EVmenu.addEnvelopedVirus(hiv);
 
         EnvelopedVirus hepatitisB = new EnvelopedVirus(
-            "Hepatitis B Virus", "DNA", "partially double-stranded", "humans", 
-            "bodily fluids", 1, "mild to severe", 0.001, 
-            "lipid envelope with surface antigen proteins"
+                "Hepatitis B Virus", "DNA", "icosahedral", 
+                Arrays.asList("Human"), "contact", 30, "mild to severe", 0.001, 
+                "lipid envelope with surface antigen proteins"
         );
         EVmenu.addEnvelopedVirus(hepatitisB);
 
-        EnvelopedVirus varicellaZosterVirus = new EnvelopedVirus(
-            "Varicella-Zoster Virus", "DNA", "icosahedral", "humans", 
-            "contact", 2, "mild to severe", 0.001, 
-            "lipid envelope with glycoprotein spikes (gC, gE, and gH/gL)"
+        EnvelopedVirus varicellaZoster = new EnvelopedVirus(
+                "Varicella-Zoster Virus", "DNA", "icosahedral", 
+                Arrays.asList("Human"), "contact", 14, "mild to moderate", 0.001, 
+                "lipid envelope with glycoprotein spikes (gC, gE, gH/gL)"
         );
-        EVmenu.addEnvelopedVirus(varicellaZosterVirus);
+        EVmenu.addEnvelopedVirus(varicellaZoster);
 
         EnvelopedVirus hepatitisC = new EnvelopedVirus(
-            "Hepatitis C Virus", "RNA", "single-stranded", "humans", 
-            "blood contact", 2, "mild to severe", 0.02, 
-            "lipid envelope with glycoprotein spikes (E1 and E2)"
+                "Hepatitis C Virus", "RNA", "icosahedral", 
+                Arrays.asList("Human"), "contact", 56, "moderate to severe", 0.0005, 
+                "lipid envelope with glycoprotein spikes (E1, E2)"
         );
         EVmenu.addEnvelopedVirus(hepatitisC);
 
         EnvelopedVirus ebolaVirus = new EnvelopedVirus(
-            "Ebola Virus", "RNA", "helical", "humans and primates", 
-            "bodily fluids", 2, "severe", 0.5, 
-            "lipid envelope with glycoprotein spikes (GP1,2)"
+                "Ebola Virus", "RNA", "helical", 
+                Arrays.asList("Human", "Bat"), "contact", 21, "severe", 0.002, 
+                "lipid envelope with glycoprotein spikes (GP1,2)"
         );
         EVmenu.addEnvelopedVirus(ebolaVirus);
 
         EnvelopedVirus dengueVirus = new EnvelopedVirus(
-            "Dengue Virus", "RNA", "single-stranded", "humans", 
-            "mosquito bite", 4, "mild to severe", 0.03, 
-            "lipid envelope with glycoprotein spikes"
+                "Dengue Virus", "RNA", "icosahedral", 
+                Arrays.asList("Human", "Mosquito"), "vector-borne", 7, "moderate to severe", 0.0001, 
+                "lipid envelope with glycoprotein spikes"
         );
         EVmenu.addEnvelopedVirus(dengueVirus);
 
         EnvelopedVirus sarsCov2 = new EnvelopedVirus(
-            "SARS-CoV-2", "RNA", "helical", "humans", 
-            "aerosol", 3, "mild to severe", 0.02, 
-            "lipid envelope with spike glycoproteins (S proteins)"
+                "SARS-CoV-2", "RNA", "helical", 
+                Arrays.asList("Human"), "airborne", 5, "moderate to severe", 0.01, 
+                "lipid envelope with spike glycoproteins (S proteins)"
         );
         EVmenu.addEnvelopedVirus(sarsCov2);
 
         EnvelopedVirus measlesVirus = new EnvelopedVirus(
-            "Measles Virus", "RNA", "helical", "humans", 
-            "aerosol", 1, "mild to severe", 0.01, 
-            "lipid envelope with glycoprotein spikes (hemagglutinin (H) and fusion (F) proteins)"
+                "Measles Virus", "RNA", "helical", 
+                Arrays.asList("Human"), "airborne", 10, "severe", 0.002, 
+                "lipid envelope with hemagglutinin (H) and fusion (F) proteins"
         );
         EVmenu.addEnvelopedVirus(measlesVirus);
+        
+        for (EnvelopedVirus virus : EVmenu.getVirusInMenu()) {
+        	EnvelopedVirus.addVirusToHost(virus.getName(), virus.getHostRange(), hostList);
+        }
     }
 
-    public static void NEVmenuStore(NonEnvelopedVirusMenu NEVmenu) {
+
+	public static void NEVmenuStore(NonEnvelopedVirusMenu NEVmenu) {
 
 		NonEnvelopedVirus poliovirus = new NonEnvelopedVirus(
-	            "Poliovirus", "RNA", "icosahedral", "humans", 
+	            "Poliovirus", "RNA", "icosahedral", Arrays.asList("Human"), 
 	            "fecal-oral", 7, "severe", 0.002
 	        );
 		

@@ -44,6 +44,25 @@ public class NonEnvelopedVirusMenu {
         return matchingViruses;
     }
 	
+	public ArrayList<NonEnvelopedVirus> searchByHostType(String hostType) {
+        ArrayList<NonEnvelopedVirus> searchResults = new ArrayList<>();
+        for (NonEnvelopedVirus virus : virusInMenu) {
+            if (virus.getHostRange().contains(hostType)) {
+                searchResults.add(virus);
+            }
+        }
+        return searchResults;
+    }
+	
+	public ArrayList<NonEnvelopedVirus> searchByGeneticMaterial(String geneticMaterialType) {
+        ArrayList<NonEnvelopedVirus> searchResults = new ArrayList<>();
+        for (NonEnvelopedVirus virus : virusInMenu) {
+            if (virus.getGeneticMaterialType().equalsIgnoreCase(geneticMaterialType)) {
+                searchResults.add(virus);
+            }
+        }
+        return searchResults;
+    }
 	
 	
 	
