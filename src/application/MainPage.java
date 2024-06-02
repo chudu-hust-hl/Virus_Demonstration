@@ -203,6 +203,9 @@ public class MainPage extends Application {
 	        );
 		
 		NEVmenu.addNonEnvelopedVirus(poliovirus);
+		for (NonEnvelopedVirus virus : NEVmenu.getVirusInMenu()) {
+        	EnvelopedVirus.addVirusToHost(virus.getName(), virus.getHostRange(), hostList);
+        }
 	}
     
     public static void main(String[] args) {
