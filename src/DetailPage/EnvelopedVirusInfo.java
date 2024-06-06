@@ -1,6 +1,6 @@
 package DetailPage;
 
-import VirusInformation.Virus;
+import VirusInformation.EnvelopedVirus;
 import application.EnvelopedPage;
 import javafx.application.HostServices;
 import javafx.geometry.Insets;
@@ -12,12 +12,12 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class EnvelopedVirusInfo{
-    private Virus virus;
+    private EnvelopedVirus virus;
     private final EnvelopedPage EVPage;
     private final Stage stage;
     private final HostServices hostServices;
 
-    public EnvelopedVirusInfo(Virus virus, EnvelopedPage EVPage, HostServices hostServices) {
+    public EnvelopedVirusInfo(EnvelopedVirus virus, EnvelopedPage EVPage, HostServices hostServices) {
         this.virus = virus;
         this.EVPage = EVPage;
         this.hostServices = hostServices;
@@ -59,6 +59,9 @@ public class EnvelopedVirusInfo{
 
         infoGrid.add(new Label("Mutation Rate:"), 0, 7);
         infoGrid.add(new Label(virus.getMutationRate() + " mutations per cycle"), 1, 7);
+        
+        infoGrid.add(new Label("Envelope composition:"), 0, 8);
+        infoGrid.add(new Label(virus.getEnvelopeComposition()), 1, 8);
 
         // Add a button to close the window
         Button returnButton = new Button("Return to Menu");
