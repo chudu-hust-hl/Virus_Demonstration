@@ -2,7 +2,7 @@ package VirusInformation;
 
 import java.util.List;
 
-public class EnvelopedVirus extends Virus {
+public class EnvelopedVirus extends NonEnvelopedVirus {
     private String envelopeComposition; // Additional attribute specific to enveloped viruses
 
     public EnvelopedVirus(String name, String geneticMaterialType, String capsidShape, 
@@ -20,11 +20,5 @@ public class EnvelopedVirus extends Virus {
 
     public void setEnvelopeComposition(String envelopeComposition) {
         this.envelopeComposition = envelopeComposition;
-    }
-
-    @Override
-    public void displayInfo() {
-        super.displayInfo();
-        System.out.println("Envelope Composition: " + envelopeComposition);
     }
 }

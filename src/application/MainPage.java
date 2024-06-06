@@ -64,23 +64,27 @@ public class MainPage extends Application {
         Button envelopedVirusButton = new Button("Enveloped Virus");
         Button nonEnvelopedVirusButton = new Button("Non-Enveloped Virus");
         Button helpButton = new Button("Help");
+        Button quitButton = new Button("Quit");
 
         // Set button styles
         String buttonStyle = "-fx-background-color: indigo; -fx-text-fill: white; -fx-pref-width: 200px; -fx-pref-height: 50px;";
+        String quitStyle = "-fx-background-color: red; -fx-text-fill: white; -fx-pref-width: 200px; -fx-pref-height: 50px;";
         envelopedVirusButton.setStyle(buttonStyle);
         nonEnvelopedVirusButton.setStyle(buttonStyle);
         helpButton.setStyle(buttonStyle);
+        quitButton.setStyle(quitStyle);
         
 
         // Button actions
         envelopedVirusButton.setOnAction(e -> showEnvelopedPage());
         nonEnvelopedVirusButton.setOnAction(e -> showNonEnvelopedPage());
         helpButton.setOnAction(e -> showHelpPage());
+        quitButton.setOnAction(e -> closeMainPage());
 
         // Add components to a VBox
         VBox vbox = new VBox(10);
         vbox.setAlignment(Pos.CENTER);
-        vbox.getChildren().addAll(titleLabel, envelopedVirusButton, nonEnvelopedVirusButton, helpButton);
+        vbox.getChildren().addAll(titleLabel, envelopedVirusButton, nonEnvelopedVirusButton, helpButton, quitButton);
         root.setCenter(vbox); // Place VBox in the center
 
         Scene scene = new Scene(root, 900, 600);
@@ -115,6 +119,11 @@ public class MainPage extends Application {
 
     public void returnToMainPage() {
         primaryStage.show();
+    }
+    
+    
+    public void closeMainPage() {
+    	primaryStage.close();
     }
     
     public static void EVmenuStore(EnvelopedVirusMenu EVmenu) {

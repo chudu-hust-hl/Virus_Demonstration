@@ -1,6 +1,6 @@
 package DetailPage;
 
-import VirusInformation.Virus;
+import VirusInformation.NonEnvelopedVirus;
 import application.NonEnvelopedPage;
 import javafx.application.HostServices;
 import javafx.geometry.Insets;
@@ -12,12 +12,12 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 public class NonEnvelopedVirusInfo{
-    private Virus virus;
+    private NonEnvelopedVirus virus;
     private final NonEnvelopedPage NEVPage;
     private final Stage stage;
     private final HostServices hostServices;
 
-    public NonEnvelopedVirusInfo(Virus virus, NonEnvelopedPage NEVPage, HostServices hostServices) {
+    public NonEnvelopedVirusInfo(NonEnvelopedVirus virus, NonEnvelopedPage NEVPage, HostServices hostServices) {
         this.virus = virus;
         this.NEVPage = NEVPage;
         this.hostServices = hostServices;

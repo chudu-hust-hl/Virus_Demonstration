@@ -3,7 +3,6 @@ package application;
 import java.util.ArrayList;
 
 import DetailPage.EnvelopedVirusInfo;
-import DetailPage.VirusEntryVisualization;
 import Host.Host;
 import Host.HostList;
 import VirusInformation.EnvelopedVirus;
@@ -89,7 +88,7 @@ public class EnvelopedPage {
         Button searchButton = new Button("Search");
         searchButton.setOnAction(e -> searchVirus(searchField.getText()));
 
-        Button returnButton = new Button("Return to Main");
+        Button returnButton = new Button("Return to Main Page");
         returnButton.setOnAction(e -> returnToMain());
 
         searchPanel.getChildren().addAll(searchField, searchButton, returnButton);
@@ -161,7 +160,7 @@ public class EnvelopedPage {
             demoButton.setMaxWidth(Double.MAX_VALUE);
             demoButton.setMaxHeight(Double.MAX_VALUE);
             demoButton.setOnAction(e -> {
-                new VirusEntryVisualization(virus, this, null, getHostServices()).show();
+                //new VirusEntryVisualization(virus, this, null, getHostServices()).show();
                 stage.close(); // Hide the EnvelopedPage
             });
 
