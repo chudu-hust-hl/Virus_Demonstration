@@ -4,11 +4,13 @@ import java.util.List;
 
 import Host.Host;
 import Host.HostList;
+import javafx.scene.image.Image;
 
 public class NonEnvelopedVirus{
     // Additional attributes or methods specific to non-enveloped viruses can be added here
 
 	private String name;
+	private String family;
     private String geneticMaterialType;
     private String capsidShape;
     private List<String> hostRange; // Changed to a list of host types
@@ -16,12 +18,15 @@ public class NonEnvelopedVirus{
     private int incubationPeriod; // in days
     private String severity;
     private double mutationRate; // mutations per replication cycle
+    private Image strucImage; // Image to display the structure of the virus
+    private String infectVid; // Path to video displaying the infecting process
 
     // Constructor
-    public NonEnvelopedVirus(String name, String geneticMaterialType, String capsidShape, 
+    public NonEnvelopedVirus(String name, String family, String geneticMaterialType, String capsidShape, 
                  List<String> hostRange, String transmissionMode, int incubationPeriod, 
-                 String severity, double mutationRate) {
+                 String severity, double mutationRate, Image strucImage, String infectVid) {
         this.name = name;
+        this.family = family;
         this.geneticMaterialType = geneticMaterialType;
         this.capsidShape = capsidShape;
         this.hostRange = hostRange;
@@ -29,6 +34,8 @@ public class NonEnvelopedVirus{
         this.incubationPeriod = incubationPeriod;
         this.severity = severity;
         this.mutationRate = mutationRate;
+        this.strucImage = strucImage;
+        this.infectVid = infectVid;
     }
     
     public static void addVirusToHost(String virusName, List<String> hostRange, HostList hostList) {
@@ -53,6 +60,10 @@ public class NonEnvelopedVirus{
     // Getters and Setters
     public String getName() {
         return name;
+    }
+    
+    public String getFamily() {
+        return family;
     }
 
     public String getGeneticMaterialType() {
@@ -81,5 +92,13 @@ public class NonEnvelopedVirus{
 
     public double getMutationRate() {
         return mutationRate;
+    }
+    
+    public Image getStrucImage() {
+        return strucImage;
+    }
+
+    public String getInfectVid() {
+        return infectVid;
     }
 }

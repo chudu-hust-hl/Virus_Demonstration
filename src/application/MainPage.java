@@ -129,74 +129,96 @@ public class MainPage extends Application {
     public static void EVmenuStore(EnvelopedVirusMenu EVmenu) {
         
     	EnvelopedVirus herpesSimplexVirus = new EnvelopedVirus(
-                "Herpes Simplex Virus", "DNA", "icosahedral", 
-                Arrays.asList("Human"), "contact", 2, "mild to severe", 0.001, 
-                "lipid envelope with glycoprotein spikes (gB, gD, gH, gL)"
-        );
-        EVmenu.addEnvelopedVirus(herpesSimplexVirus);
+		    "Herpes Simplex Virus", "Herpesviridae", "DNA", "icosahedral",
+		    Arrays.asList("Human"), "contact", 2, "mild to severe", 0.001,
+		    new Image("file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Herpes Simplex Virus (Herpesviridae).png"), 
+		    "file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Herpes Simplex Virus (Herpesviridae).mp4",
+		    "lipid envelope with glycoprotein spikes (gB, gD, gH, gL)"
+		);
+		EVmenu.addEnvelopedVirus(herpesSimplexVirus);
 
-        EnvelopedVirus influenzaVirus = new EnvelopedVirus(
-                "Influenza Virus", "RNA", "segmented", 
-                Arrays.asList("Human", "Bird"), "airborne", 1, "moderate to severe", 0.01, 
-                "lipid envelope with hemagglutinin (HA) and neuraminidase (NA)"
-        );
-        EVmenu.addEnvelopedVirus(influenzaVirus);
+		EnvelopedVirus influenzaVirus = new EnvelopedVirus(
+		    "Influenza Virus", "Orthomyxoviridae", "RNA", "segmented",
+		    Arrays.asList("Human", "Bird"), "airborne", 1, "moderate to severe", 0.01,
+		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Influena_virus.jpg"), 
+		    "file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Influenza Virus (Orthomyxoviridae).mp4",
+		    "lipid envelope with hemagglutinin (HA) and neuraminidase (NA)"
+		);
+		EVmenu.addEnvelopedVirus(influenzaVirus);
 
-        EnvelopedVirus hiv = new EnvelopedVirus(
-                "HIV", "RNA", "complex", 
-                Arrays.asList("Human", "Primate"), "contact", 14, "severe", 0.003, 
-                "lipid envelope with glycoprotein spikes (gp120, gp41)"
-        );
-        EVmenu.addEnvelopedVirus(hiv);
+		EnvelopedVirus hiv = new EnvelopedVirus(
+		    "HIV", "Retroviridae", "RNA", "complex",
+		    Arrays.asList("Human", "Primate"), "contact", 14, "severe", 0.003,
+		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\HIV (Retroviridae).png"), 
+		    "file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/HIV (Retroviridae).mp4",
+		    "lipid envelope with glycoprotein spikes (gp120, gp41)"
+		);
+		EVmenu.addEnvelopedVirus(hiv);
 
-        EnvelopedVirus hepatitisB = new EnvelopedVirus(
-                "Hepatitis B Virus", "DNA", "icosahedral", 
-                Arrays.asList("Human"), "contact", 30, "mild to severe", 0.001, 
-                "lipid envelope with surface antigen proteins"
-        );
-        EVmenu.addEnvelopedVirus(hepatitisB);
+		EnvelopedVirus hepatitisB = new EnvelopedVirus(
+		    "Hepatitis B Virus", "Hepadnaviridae", "DNA", "icosahedral",
+		    Arrays.asList("Human"), "contact", 30, "mild to severe", 0.001,
+		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Hepatitis B Virus (Hepadnaviridae).jpeg"), 
+		    "file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Hepatitis B Virus (Hepadnaviridae).mp4",
+		    "lipid envelope with surface antigen proteins"
+		);
+		EVmenu.addEnvelopedVirus(hepatitisB);
 
-        EnvelopedVirus varicellaZoster = new EnvelopedVirus(
-                "Varicella-Zoster Virus", "DNA", "icosahedral", 
-                Arrays.asList("Human"), "contact", 14, "mild to moderate", 0.001, 
-                "lipid envelope with glycoprotein spikes (gC, gE, gH/gL)"
-        );
-        EVmenu.addEnvelopedVirus(varicellaZoster);
+		EnvelopedVirus varicellaZoster = new EnvelopedVirus(
+		    "Varicella-Zoster Virus", "Herpesviridae", "DNA", "icosahedral",
+		    Arrays.asList("Human"), "contact", 14, "mild to moderate", 0.001,
+		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Varicella-Zoster Virus (Herpesviridae).jpg"), 
+		    "file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Varicella-Zoster Virus (Herpesviridae).mp4",
+		    "lipid envelope with glycoprotein spikes (gC, gE, gH/gL)"
+		);
+		EVmenu.addEnvelopedVirus(varicellaZoster);
 
-        EnvelopedVirus hepatitisC = new EnvelopedVirus(
-                "Hepatitis C Virus", "RNA", "icosahedral", 
-                Arrays.asList("Human"), "contact", 56, "moderate to severe", 0.0005, 
-                "lipid envelope with glycoprotein spikes (E1, E2)"
-        );
-        EVmenu.addEnvelopedVirus(hepatitisC);
+		EnvelopedVirus hepatitisC = new EnvelopedVirus(
+		    "Hepatitis C Virus", "Flaviviridae", "RNA", "icosahedral",
+		    Arrays.asList("Human"), "contact", 56, "moderate to severe", 0.0005,
+		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Hepatitis C Virus (Flaviviridae).jpeg"), 
+		    "file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Hepatitis C Virus (Flaviviridae).mp4",
+		    "lipid envelope with glycoprotein spikes (E1, E2)"
+		);
+		EVmenu.addEnvelopedVirus(hepatitisC);
 
-        EnvelopedVirus ebolaVirus = new EnvelopedVirus(
-                "Ebola Virus", "RNA", "helical", 
-                Arrays.asList("Human", "Bat"), "contact", 21, "severe", 0.002, 
-                "lipid envelope with glycoprotein spikes (GP1,2)"
-        );
-        EVmenu.addEnvelopedVirus(ebolaVirus);
+		EnvelopedVirus ebolaVirus = new EnvelopedVirus(
+		    "Ebola Virus", "Filoviridae", "RNA", "helical",
+		    Arrays.asList("Human", "Bat"), "contact", 21, "severe", 0.002,
+		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Ebola Virus.png"), 
+		    "file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Ebola Virus (Filoviridae).mp4",
+		    "lipid envelope with glycoprotein spikes (GP1,2)"
+		);
+		EVmenu.addEnvelopedVirus(ebolaVirus);
 
-        EnvelopedVirus dengueVirus = new EnvelopedVirus(
-                "Dengue Virus", "RNA", "icosahedral", 
-                Arrays.asList("Human", "Mosquito"), "vector-borne", 7, "moderate to severe", 0.0001, 
-                "lipid envelope with glycoprotein spikes"
-        );
-        EVmenu.addEnvelopedVirus(dengueVirus);
+		EnvelopedVirus dengueVirus = new EnvelopedVirus(
+		    "Dengue Virus", "Flaviviridae", "RNA", "icosahedral",
+		    Arrays.asList("Human", "Mosquito"), "vector-borne", 7, "moderate to severe", 0.0001,
+		    new Image("file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Dengue Virus (Flaviviridae).png"), 
+		    "file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Dengue Virus (Flaviviridae).mp4",
+		    "lipid envelope with glycoprotein spikes"
+		);
+		EVmenu.addEnvelopedVirus(dengueVirus);
 
-        EnvelopedVirus sarsCov2 = new EnvelopedVirus(
-                "SARS-CoV-2", "RNA", "helical", 
-                Arrays.asList("Human"), "airborne", 5, "moderate to severe", 0.01, 
-                "lipid envelope with spike glycoproteins (S proteins)"
-        );
-        EVmenu.addEnvelopedVirus(sarsCov2);
+		EnvelopedVirus sarsCov2 = new EnvelopedVirus(
+		    "SARS-CoV-2", "Coronaviridae", "RNA", "helical",
+		    Arrays.asList("Human"), "airborne", 5, "moderate to severe", 0.01,
+		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\SARS-CoV-2 (Coronaviridae).jpeg"), 
+		    "file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/SARS-CoV-2 (Coronaviridae).mp4",
+		    "lipid envelope with spike glycoproteins (S proteins)"
+		);
+		EVmenu.addEnvelopedVirus(sarsCov2);
 
-        EnvelopedVirus measlesVirus = new EnvelopedVirus(
-                "Measles Virus", "RNA", "helical", 
-                Arrays.asList("Human"), "airborne", 10, "severe", 0.002, 
-                "lipid envelope with hemagglutinin (H) and fusion (F) proteins"
-        );
-        EVmenu.addEnvelopedVirus(measlesVirus);
+		EnvelopedVirus measlesVirus = new EnvelopedVirus(
+		    "Measles Virus", "Paramyxoviridae", "RNA", "helical",
+		    Arrays.asList("Human"), "airborne", 10, "severe", 0.002,
+		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Measles Virus (Paramyxoviridae).jpeg"), 
+		    "file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Measles Virus (Paramyxoviridae).mp4",
+		    "lipid envelope with hemagglutinin (H) and fusion (F) proteins"
+		);
+		EVmenu.addEnvelopedVirus(measlesVirus);
+
+
         
         for (EnvelopedVirus virus : EVmenu.getVirusInMenu()) {
         	EnvelopedVirus.addVirusToHost(virus.getName(), virus.getHostRange(), hostList);
@@ -204,14 +226,15 @@ public class MainPage extends Application {
     }
 
 
+    //This is the non-enveloped Virus
 	public static void NEVmenuStore(NonEnvelopedVirusMenu NEVmenu) {
 
-		NonEnvelopedVirus poliovirus = new NonEnvelopedVirus(
+		/*NonEnvelopedVirus poliovirus = new NonEnvelopedVirus(
 	            "Poliovirus", "RNA", "icosahedral", Arrays.asList("Human"), 
 	            "fecal-oral", 7, "severe", 0.002
-	        );
+	        );*/
 		
-		NEVmenu.addNonEnvelopedVirus(poliovirus);
+		//NEVmenu.addNonEnvelopedVirus(poliovirus);
 		for (NonEnvelopedVirus virus : NEVmenu.getVirusInMenu()) {
         	EnvelopedVirus.addVirusToHost(virus.getName(), virus.getHostRange(), hostList);
         }

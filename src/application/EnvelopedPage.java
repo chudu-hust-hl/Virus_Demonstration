@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -147,12 +148,16 @@ public class EnvelopedPage {
 
             Label nameLabel = new Label(virus.getName());
             nameLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+            
+            ImageView imageView = new ImageView(virus.getStrucImage());
+            imageView.setFitHeight(100);
+            imageView.setPreserveRatio(true);
 
             Button infoButton = new Button("Virus Information");
             infoButton.setMaxWidth(Double.MAX_VALUE);
             infoButton.setMaxHeight(Double.MAX_VALUE);
             infoButton.setOnAction(e -> {
-                new EnvelopedVirusInfo(virus, this, getHostServices()).show();
+                new EnvelopedVirusInfo(virus, this, getHostServices(), menu).show();
                 stage.close(); // Hide the EnvelopedPage
             });
 
@@ -164,7 +169,7 @@ public class EnvelopedPage {
                 stage.close(); // Hide the EnvelopedPage
             });
 
-            cell.getChildren().addAll(nameLabel, infoButton, demoButton);
+            cell.getChildren().addAll(nameLabel, imageView, infoButton, demoButton);
             centerGrid.add(cell, col, row);
             GridPane.setHgrow(cell, Priority.ALWAYS);
             GridPane.setVgrow(cell, Priority.ALWAYS);
