@@ -64,6 +64,15 @@ public class NonEnvelopedVirusMenu {
         return searchResults;
     }
 	
+	public NonEnvelopedVirus getVirusByName(String name) {
+        for (NonEnvelopedVirus virus : virusInMenu) {
+            if (virus.getName().equalsIgnoreCase(name)) {
+                return virus;
+            }
+        }
+        return null; // Return null if the virus is not found
+    }
+	
 	
 	
 	public ArrayList<NonEnvelopedVirus> getVirusInMenu() {

@@ -15,6 +15,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceDialog;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -82,7 +83,7 @@ public class EnvelopedVirusInfo {
         envelopeTextFlow.setMaxWidth(230); // Adjust this width as necessary
         infoGrid.add(envelopeTextFlow, 1, 8);
 
-        // Add image of the virus
+        // Add image of the virus with zoom functionality
         ImageView virusImageView = new ImageView();
         if (virus.getStrucImage() != null) {
             virusImageView.setImage(virus.getStrucImage());
@@ -91,6 +92,9 @@ public class EnvelopedVirusInfo {
         virusImageView.setPreserveRatio(true);
         virusImageView.setSmooth(true);
         virusImageView.setCache(true);
+
+        // Event handler for image click
+        virusImageView.setOnMouseClicked(event -> showEnlargedImage(virus.getStrucImage()));
 
         VBox infoBox = new VBox();
         infoBox.getChildren().addAll(infoGrid, virusImageView);
@@ -119,6 +123,19 @@ public class EnvelopedVirusInfo {
         Scene scene = new Scene(root, 900, 600);
         stage.setScene(scene);
         stage.show();
+    }
+
+    private void showEnlargedImage(Image image) {
+        Stage imageStage = new Stage();
+        BorderPane imageRoot = new BorderPane();
+        ImageView enlargedImageView = new ImageView(image);
+        enlargedImageView.setFitWidth(600); // Set enlarged fit width
+        enlargedImageView.setPreserveRatio(true);
+
+        imageRoot.setCenter(enlargedImageView);
+        Scene imageScene = new Scene(imageRoot, 600, 600);
+        imageStage.setScene(imageScene);
+        imageStage.show();
     }
 
     private void compareVirus() {
@@ -187,7 +204,7 @@ public class EnvelopedVirusInfo {
         envelopeTextFlow.setMaxWidth(230); // Adjust this width as necessary
         comparisonGrid.add(envelopeTextFlow, 1, 8);
 
-        // Add image of the selected virus
+        // Add image of the selected virus with zoom functionality
         ImageView selectedVirusImageView = new ImageView();
         if (selectedVirus.getStrucImage() != null) {
             selectedVirusImageView.setImage(selectedVirus.getStrucImage());
@@ -196,6 +213,9 @@ public class EnvelopedVirusInfo {
         selectedVirusImageView.setPreserveRatio(true);
         selectedVirusImageView.setSmooth(true);
         selectedVirusImageView.setCache(true);
+
+        // Event handler for image click
+        selectedVirusImageView.setOnMouseClicked(event -> showEnlargedImage(selectedVirus.getStrucImage()));
 
         VBox comparisonBox = new VBox();
         comparisonBox.getChildren().addAll(comparisonGrid, selectedVirusImageView);
