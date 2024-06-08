@@ -3,6 +3,7 @@ package application;
 import java.util.ArrayList;
 
 import DetailPage.NonEnvelopedVirusInfo;
+import DetailPage.NonEnvelopedVirusStatistics;
 import Host.Host;
 import Host.HostList;
 import VirusInformation.NonEnvelopedVirus;
@@ -15,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -65,9 +67,9 @@ public class NonEnvelopedPage {
         header.setAlignment(Pos.CENTER);
         header.setPadding(new Insets(10));
 
-        Label title = new Label("Enveloped Virus");
+        Label title = new Label("Non-Enveloped Virus");
         title.setFont(new Font(30));
-        title.setTextFill(Color.CYAN);
+        title.setTextFill(Color.INDIGO);
 
         header.getChildren().add(title);
         return header;
@@ -87,11 +89,17 @@ public class NonEnvelopedPage {
 
         Button searchButton = new Button("Search");
         searchButton.setOnAction(e -> searchVirus(searchField.getText()));
+        
+        Button statButton = new Button("Virus Statistics");
+        statButton.setOnAction(e -> {
+            new NonEnvelopedVirusStatistics(this, getHostServices(), menu).show();
+            stage.close(); // Hide the EnvelopedPage
+        });;
 
         Button returnButton = new Button("Return to Main Page");
         returnButton.setOnAction(e -> returnToMain());
 
-        searchPanel.getChildren().addAll(searchField, searchButton, returnButton);
+        searchPanel.getChildren().addAll(searchField, searchButton, statButton, returnButton);
         searchBox.getChildren().add(searchPanel);
         
         //Buttons to search for virus iffecting these
@@ -147,12 +155,16 @@ public class NonEnvelopedPage {
 
             Label nameLabel = new Label(virus.getName());
             nameLabel.setFont(Font.font("Arial", FontWeight.BOLD, 14));
+            
+            ImageView imageView = new ImageView(virus.getStrucImage());
+            imageView.setFitHeight(100);
+            imageView.setPreserveRatio(true);
 
             Button infoButton = new Button("Virus Information");
             infoButton.setMaxWidth(Double.MAX_VALUE);
             infoButton.setMaxHeight(Double.MAX_VALUE);
             infoButton.setOnAction(e -> {
-                new NonEnvelopedVirusInfo(virus, this, getHostServices()).show();
+                new NonEnvelopedVirusInfo(virus, this, getHostServices(), menu).show();
                 stage.close(); // Hide the NonEnvelopedPage
             });
 
@@ -163,7 +175,7 @@ public class NonEnvelopedPage {
                 stage.close(); // Hide the NonEnvelopedPage
             });
 
-            cell.getChildren().addAll(nameLabel, infoButton, demoButton);
+            cell.getChildren().addAll(nameLabel, imageView, infoButton, demoButton);
             centerGrid.add(cell, col, row);
             GridPane.setHgrow(cell, Priority.ALWAYS);
             GridPane.setVgrow(cell, Priority.ALWAYS);

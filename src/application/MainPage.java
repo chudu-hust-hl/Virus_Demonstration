@@ -194,7 +194,7 @@ public class MainPage extends Application {
 		EnvelopedVirus dengueVirus = new EnvelopedVirus(
 		    "Dengue Virus", "Flaviviridae", "RNA", "icosahedral",
 		    Arrays.asList("Human", "Mosquito"), "vector-borne", 7, "moderate to severe", 0.0001,
-		    new Image("file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Dengue Virus (Flaviviridae).png"), 
+		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Dengue Virus (Flaviviridae).jpeg"), 
 		    "file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Dengue Virus (Flaviviridae).mp4",
 		    "lipid envelope with glycoprotein spikes"
 		);
@@ -229,12 +229,155 @@ public class MainPage extends Application {
     //This is the non-enveloped Virus
 	public static void NEVmenuStore(NonEnvelopedVirusMenu NEVmenu) {
 
-		/*NonEnvelopedVirus poliovirus = new NonEnvelopedVirus(
-	            "Poliovirus", "RNA", "icosahedral", Arrays.asList("Human"), 
-	            "fecal-oral", 7, "severe", 0.002
-	        );*/
-		
-		//NEVmenu.addNonEnvelopedVirus(poliovirus);
+		NonEnvelopedVirus rhinovirus = new NonEnvelopedVirus(
+	            "Rhinovirus", 
+	            "Picornaviridae", 
+	            "RNA", 
+	            "icosahedral", 
+	            Arrays.asList("Human"), 
+	            "contact", 
+	            2, 
+	            "mild to severe", 
+	            0.001, 
+	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Rhinovirus (Picornaviridae).png"), 
+	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Rhinovirus.mp4"
+	        );
+	        NEVmenu.addNonEnvelopedVirus(rhinovirus);
+
+	        NonEnvelopedVirus poliovirus = new NonEnvelopedVirus(
+	            "Poliovirus", 
+	            "Picornaviridae", 
+	            "RNA", 
+	            "icosahedral", 
+	            Arrays.asList("Human"), 
+	            "contact", 
+	            7, 
+	            "severe", 
+	            0.002, 
+	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Poliovirus (Picornaviridae).png"), 
+	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Poliovirus.mp4"
+	        );
+	        NEVmenu.addNonEnvelopedVirus(poliovirus);
+
+	        NonEnvelopedVirus adenovirus = new NonEnvelopedVirus(
+	            "Adenovirus", 
+	            "Adenoviridae", 
+	            "DNA", 
+	            "icosahedral", 
+	            Arrays.asList("Human"), 
+	            "airborne", 
+	            5, 
+	            "mild to severe", 
+	            0.0005, 
+	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Adenovirus (Adenoviridae).jpeg"), 
+	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Adenovirus.mp4"
+	        );
+	        NEVmenu.addNonEnvelopedVirus(adenovirus);
+
+	        NonEnvelopedVirus norovirus = new NonEnvelopedVirus(
+	            "Norovirus", 
+	            "Caliciviridae", 
+	            "RNA", 
+	            "icosahedral", 
+	            Arrays.asList("Human"), 
+	            "contact", 
+	            1, 
+	            "moderate to severe", 
+	            0.0007, 
+	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Norovirus (Caliciviridae).jpeg"), 
+	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Norovirus.mp4"
+	        );
+	        NEVmenu.addNonEnvelopedVirus(norovirus);
+
+	        NonEnvelopedVirus rotavirus = new NonEnvelopedVirus(
+	            "Rotavirus", 
+	            "Reoviridae", 
+	            "RNA", 
+	            "icosahedral", 
+	            Arrays.asList("Human"), 
+	            "contact", 
+	            2, 
+	            "moderate to severe", 
+	            0.0008, 
+	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Rotavirus (Reoviridae).jpeg"), 
+	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Rotavirus.mp4"
+	        );
+	        NEVmenu.addNonEnvelopedVirus(rotavirus);
+
+	        NonEnvelopedVirus hepatitisA = new NonEnvelopedVirus(
+	            "Hepatitis A Virus", 
+	            "Picornaviridae", 
+	            "RNA", 
+	            "icosahedral", 
+	            Arrays.asList("Human"), 
+	            "contact", 
+	            28, 
+	            "mild to severe", 
+	            0.0001, 
+	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Hepatitis A Virus (Picornaviridae).png"), 
+	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Hepatitis A Virus.mp4"
+	        );
+	        NEVmenu.addNonEnvelopedVirus(hepatitisA);
+
+	        NonEnvelopedVirus papillomavirus = new NonEnvelopedVirus(
+	            "Papillomavirus", 
+	            "Papillomaviridae", 
+	            "DNA", 
+	            "icosahedral", 
+	            Arrays.asList("Human"), 
+	            "contact", 
+	            30, 
+	            "mild to moderate", 
+	            0.0002, 
+	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Papillomavirus (Papillomaviridae).png"), 
+	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Papillomavirus.mp4"
+	        );
+	        NEVmenu.addNonEnvelopedVirus(papillomavirus);
+
+	        NonEnvelopedVirus hepatitisE = new NonEnvelopedVirus(
+	            "Hepatitis E Virus", 
+	            "Hepeviridae", 
+	            "RNA", 
+	            "icosahedral", 
+	            Arrays.asList("Human"), 
+	            "contact", 
+	            40, 
+	            "mild to severe", 
+	            0.0003, 
+	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Hepatitis E Virus (Hepeviridae).png"), 
+	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Hepatitis E Virus.mp4"
+	        );
+	        NEVmenu.addNonEnvelopedVirus(hepatitisE);
+
+	        NonEnvelopedVirus humanPapillomavirus = new NonEnvelopedVirus(
+	            "Human Papillomavirus", 
+	            "Papillomaviridae", 
+	            "DNA", 
+	            "icosahedral", 
+	            Arrays.asList("Human"), 
+	            "contact", 
+	            25, 
+	            "mild to moderate", 
+	            0.0002, 
+	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Human Papillomavirus (Papillomaviridae).jpeg"), 
+	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Human Papillomavirus.mp4"
+	        );
+	        NEVmenu.addNonEnvelopedVirus(humanPapillomavirus);
+
+	        NonEnvelopedVirus rabies = new NonEnvelopedVirus(
+	            "Rabies Virus", 
+	            "Rhabdoviridae", 
+	            "RNA", 
+	            "helical", 
+	            Arrays.asList("Human", "Mammal"), 
+	            "contact", 
+	            60, 
+	            "severe", 
+	            0.0004, 
+	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Rabies Virus (Rhabdoviridae).jpeg"), 
+	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Rabies Virus.mp4"
+	        );
+	        NEVmenu.addNonEnvelopedVirus(rabies);
 		for (NonEnvelopedVirus virus : NEVmenu.getVirusInMenu()) {
         	EnvelopedVirus.addVirusToHost(virus.getName(), virus.getHostRange(), hostList);
         }

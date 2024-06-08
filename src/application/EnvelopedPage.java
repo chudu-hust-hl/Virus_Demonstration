@@ -3,6 +3,7 @@ package application;
 import java.util.ArrayList;
 
 import DetailPage.EnvelopedVirusInfo;
+import DetailPage.EnvelopedVirusStatistics;
 import Host.Host;
 import Host.HostList;
 import VirusInformation.EnvelopedVirus;
@@ -68,7 +69,7 @@ public class EnvelopedPage {
 
         Label title = new Label("Enveloped Virus");
         title.setFont(new Font(30));
-        title.setTextFill(Color.CYAN);
+        title.setTextFill(Color.INDIGO);
 
         header.getChildren().add(title);
         return header;
@@ -88,11 +89,17 @@ public class EnvelopedPage {
 
         Button searchButton = new Button("Search");
         searchButton.setOnAction(e -> searchVirus(searchField.getText()));
+        
+        Button statButton = new Button("Virus Statistics");
+        statButton.setOnAction(e -> {
+            new EnvelopedVirusStatistics(this, getHostServices(), menu).show();
+            stage.close(); // Hide the EnvelopedPage
+        });;
 
         Button returnButton = new Button("Return to Main Page");
         returnButton.setOnAction(e -> returnToMain());
 
-        searchPanel.getChildren().addAll(searchField, searchButton, returnButton);
+        searchPanel.getChildren().addAll(searchField, searchButton, statButton, returnButton);
         searchBox.getChildren().add(searchPanel);
         
         //Buttons to search for virus iffecting these
