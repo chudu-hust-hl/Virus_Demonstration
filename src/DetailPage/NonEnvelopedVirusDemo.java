@@ -2,8 +2,8 @@ package DetailPage;
 
 import java.io.File;
 
-import VirusInformation.EnvelopedVirus;
-import application.EnvelopedPage;
+import VirusInformation.NonEnvelopedVirus;
+import application.NonEnvelopedPage;
 import javafx.application.HostServices;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -19,16 +19,16 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.Stage;
 
-public class EnvelopedVirusDemo {
-    private final EnvelopedVirus virus;
-    private final EnvelopedPage EVPage;
+public class NonEnvelopedVirusDemo {
+    private final NonEnvelopedVirus virus;
+    private final NonEnvelopedPage NEVPage;
     private final Stage stage;
     private final HostServices hostServices;
     private MediaPlayer mediaPlayer;
 
-    public EnvelopedVirusDemo(EnvelopedVirus virus, EnvelopedPage EVPage, HostServices hostServices) {
+    public NonEnvelopedVirusDemo(NonEnvelopedVirus virus, NonEnvelopedPage NEVPage, HostServices hostServices) {
         this.virus = virus;
-        this.EVPage = EVPage;
+        this.NEVPage = NEVPage;
         this.hostServices = hostServices;
         this.stage = new Stage();
     }
@@ -118,7 +118,7 @@ public class EnvelopedVirusDemo {
             if (mediaPlayer != null) {
                 mediaPlayer.stop();
             }
-            EVPage.returnToMenu();
+            NEVPage.returnToMenu();
             stage.close();
         });
 

@@ -131,7 +131,7 @@ public class MainPage extends Application {
     	EnvelopedVirus herpesSimplexVirus = new EnvelopedVirus(
 		    "Herpes Simplex Virus", "Herpesviridae", "DNA", "icosahedral",
 		    Arrays.asList("Human"), "contact", 2, "mild to severe", 0.001,
-		    new Image("file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Herpes Simplex Virus (Herpesviridae).png"), 
+		    new Image("file:Enveloped/Herpes Simplex Virus (Herpesviridae).png"), 
 		    "EnvelopedVideo\\Herpes Simplex Virus.mp4",
 		    "lipid envelope with glycoprotein spikes (gB, gD, gH, gL)"
 		);
@@ -140,7 +140,7 @@ public class MainPage extends Application {
 		EnvelopedVirus influenzaVirus = new EnvelopedVirus(
 		    "Influenza Virus", "Orthomyxoviridae", "RNA", "segmented",
 		    Arrays.asList("Human", "Bird"), "airborne", 1, "moderate to severe", 0.01,
-		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Influena_virus.jpg"), 
+		    new Image("file:Enveloped\\Influena_virus.jpg"), 
 		    "EnvelopedVideo\\Influenza Virus.mp4",
 		    "lipid envelope with hemagglutinin (HA) and neuraminidase (NA)"
 		);
@@ -149,7 +149,7 @@ public class MainPage extends Application {
 		EnvelopedVirus hiv = new EnvelopedVirus(
 		    "HIV", "Retroviridae", "RNA", "complex",
 		    Arrays.asList("Human", "Primate"), "contact", 14, "severe", 0.003,
-		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\HIV (Retroviridae).png"), 
+		    new Image("file:Enveloped\\HIV (Retroviridae).png"), 
 		    "EnvelopedVideo\\HIV.mp4",
 		    "lipid envelope with glycoprotein spikes (gp120, gp41)"
 		);
@@ -158,7 +158,7 @@ public class MainPage extends Application {
 		EnvelopedVirus hepatitisB = new EnvelopedVirus(
 		    "Hepatitis B Virus", "Hepadnaviridae", "DNA", "icosahedral",
 		    Arrays.asList("Human"), "contact", 30, "mild to severe", 0.001,
-		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Hepatitis B Virus (Hepadnaviridae).jpeg"), 
+		    new Image("file:Enveloped\\Hepatitis B Virus (Hepadnaviridae).jpeg"), 
 		    "EnvelopedVideo\\Hepatitis B.mp4",
 		    "lipid envelope with surface antigen proteins"
 		);
@@ -167,7 +167,7 @@ public class MainPage extends Application {
 		EnvelopedVirus varicellaZoster = new EnvelopedVirus(
 		    "Varicella-Zoster Virus", "Herpesviridae", "DNA", "icosahedral",
 		    Arrays.asList("Human"), "contact", 14, "mild to moderate", 0.001,
-		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Varicella-Zoster Virus (Herpesviridae).jpg"), 
+		    new Image("file:Enveloped\\Varicella-Zoster Virus (Herpesviridae).jpg"), 
 		    "EnvelopedVideo\\VZV.mp4",
 		    "lipid envelope with glycoprotein spikes (gC, gE, gH/gL)"
 		);
@@ -176,7 +176,7 @@ public class MainPage extends Application {
 		EnvelopedVirus hepatitisC = new EnvelopedVirus(
 		    "Hepatitis C Virus", "Flaviviridae", "RNA", "icosahedral",
 		    Arrays.asList("Human"), "contact", 56, "moderate to severe", 0.0005,
-		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Hepatitis C Virus (Flaviviridae).jpeg"), 
+		    new Image("file:Enveloped\\Hepatitis C Virus (Flaviviridae).jpeg"), 
 		    "EnvelopedVideo\\Hepatitis C.mp4",
 		    "lipid envelope with glycoprotein spikes (E1, E2)"
 		);
@@ -185,7 +185,7 @@ public class MainPage extends Application {
 		EnvelopedVirus ebolaVirus = new EnvelopedVirus(
 		    "Ebola Virus", "Filoviridae", "RNA", "helical",
 		    Arrays.asList("Human", "Bat"), "contact", 21, "severe", 0.002,
-		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Ebola Virus.png"), 
+		    new Image("file:Enveloped\\Ebola Virus.png"), 
 		    "EnvelopedVideo\\Ebola.mp4",
 		    "lipid envelope with glycoprotein spikes (GP1,2)"
 		);
@@ -194,7 +194,7 @@ public class MainPage extends Application {
 		EnvelopedVirus dengueVirus = new EnvelopedVirus(
 		    "Dengue Virus", "Flaviviridae", "RNA", "icosahedral",
 		    Arrays.asList("Human", "Mosquito"), "vector-borne", 7, "moderate to severe", 0.0001,
-		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Dengue Virus (Flaviviridae).jpeg"), 
+		    new Image("file:Enveloped\\Dengue Virus (Flaviviridae).jpeg"), 
 		    "file:D:/HUST ICT/VirusDemonstration/Virus_Demonstration/Enveloped/Dengue Virus (Flaviviridae).mp4",
 		    "lipid envelope with glycoprotein spikes"
 		);
@@ -203,7 +203,7 @@ public class MainPage extends Application {
 		EnvelopedVirus sarsCov2 = new EnvelopedVirus(
 		    "SARS-CoV-2", "Coronaviridae", "RNA", "helical",
 		    Arrays.asList("Human"), "airborne", 5, "moderate to severe", 0.01,
-		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\SARS-CoV-2 (Coronaviridae).jpeg"), 
+		    new Image("file:Enveloped\\SARS-CoV-2 (Coronaviridae).jpeg"), 
 		    "EnvelopedVideo\\Corona.mp4",
 		    "lipid envelope with spike glycoproteins (S proteins)"
 		);
@@ -212,7 +212,7 @@ public class MainPage extends Application {
 		EnvelopedVirus measlesVirus = new EnvelopedVirus(
 		    "Measles Virus", "Paramyxoviridae", "RNA", "helical",
 		    Arrays.asList("Human"), "airborne", 10, "severe", 0.002,
-		    new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\Enveloped\\Measles Virus (Paramyxoviridae).jpeg"), 
+		    new Image("file:Enveloped\\Measles Virus (Paramyxoviridae).jpeg"), 
 		    "EnvelopedVideo\\Measles.mp4",
 		    "lipid envelope with hemagglutinin (H) and fusion (F) proteins"
 		);
@@ -239,8 +239,8 @@ public class MainPage extends Application {
 	            2, 
 	            "mild to severe", 
 	            0.001, 
-	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Rhinovirus (Picornaviridae).png"), 
-	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Rhinovirus.mp4"
+	            new Image("file:NonEnveloped\\Rhinovirus (Picornaviridae).png"), 
+	            "NonEnvelopedVideo\\Rhino.mp4"
 	        );
 	        NEVmenu.addNonEnvelopedVirus(rhinovirus);
 
@@ -254,7 +254,7 @@ public class MainPage extends Application {
 	            7, 
 	            "severe", 
 	            0.002, 
-	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Poliovirus (Picornaviridae).png"), 
+	            new Image("file:NonEnveloped\\poliovirus.png"), 
 	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Poliovirus.mp4"
 	        );
 	        NEVmenu.addNonEnvelopedVirus(poliovirus);
@@ -269,8 +269,8 @@ public class MainPage extends Application {
 	            5, 
 	            "mild to severe", 
 	            0.0005, 
-	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Adenovirus (Adenoviridae).jpeg"), 
-	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Adenovirus.mp4"
+	            new Image("file:NonEnveloped\\Adenovirus (Adenoviridae).jpeg"), 
+	            "NonEnvelopedVideo\\Adenovirus.mp4"
 	        );
 	        NEVmenu.addNonEnvelopedVirus(adenovirus);
 
@@ -284,8 +284,8 @@ public class MainPage extends Application {
 	            1, 
 	            "moderate to severe", 
 	            0.0007, 
-	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Norovirus (Caliciviridae).jpeg"), 
-	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Norovirus.mp4"
+	            new Image("file:NonEnveloped\\Norovirus (Caliciviridae).jpeg"), 
+	            "NonEnvelopedVideo\\Norovirus.mp4\""
 	        );
 	        NEVmenu.addNonEnvelopedVirus(norovirus);
 
@@ -299,8 +299,8 @@ public class MainPage extends Application {
 	            2, 
 	            "moderate to severe", 
 	            0.0008, 
-	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Rotavirus (Reoviridae).jpeg"), 
-	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Rotavirus.mp4"
+	            new Image("file:NonEnveloped\\Rotavirus (Reoviridae).jpeg"), 
+	            "NonEnvelopedVideo\\Rota.mp4"
 	        );
 	        NEVmenu.addNonEnvelopedVirus(rotavirus);
 
@@ -314,8 +314,8 @@ public class MainPage extends Application {
 	            28, 
 	            "mild to severe", 
 	            0.0001, 
-	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Hepatitis A Virus (Picornaviridae).png"), 
-	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Hepatitis A Virus.mp4"
+	            new Image("file:NonEnveloped\\Hepatitis A (Picornaviridae).PNG"), 
+	            "NonEnvelopedVideo\\Hepatitis A.mp4"
 	        );
 	        NEVmenu.addNonEnvelopedVirus(hepatitisA);
 
@@ -329,7 +329,7 @@ public class MainPage extends Application {
 	            30, 
 	            "mild to moderate", 
 	            0.0002, 
-	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Papillomavirus (Papillomaviridae).png"), 
+	            new Image("file:NonEnveloped\\papiloma.png"), 
 	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Papillomavirus.mp4"
 	        );
 	        NEVmenu.addNonEnvelopedVirus(papillomavirus);
@@ -344,7 +344,7 @@ public class MainPage extends Application {
 	            40, 
 	            "mild to severe", 
 	            0.0003, 
-	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Hepatitis E Virus (Hepeviridae).png"), 
+	            new Image("file:NonEnveloped\\Hepatis E.jpg"), 
 	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Hepatitis E Virus.mp4"
 	        );
 	        NEVmenu.addNonEnvelopedVirus(hepatitisE);
@@ -359,8 +359,8 @@ public class MainPage extends Application {
 	            25, 
 	            "mild to moderate", 
 	            0.0002, 
-	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Human Papillomavirus (Papillomaviridae).jpeg"), 
-	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Human Papillomavirus.mp4"
+	            new Image("file:NonEnveloped\\Human Papillomavirus (Papillomaviridae).jpeg"), 
+	            "NonEnvelopedVideo\\Human Papillomarvirus.mp4"
 	        );
 	        NEVmenu.addNonEnvelopedVirus(humanPapillomavirus);
 
@@ -374,8 +374,8 @@ public class MainPage extends Application {
 	            60, 
 	            "severe", 
 	            0.0004, 
-	            new Image("file:D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Rabies Virus (Rhabdoviridae).jpeg"), 
-	            "D:\\HUST ICT\\VirusDemonstration\\Virus_Demonstration\\NonEnveloped\\Rabies Virus.mp4"
+	            new Image("file:NonEnveloped\\Rabies Virus (Rhabdoviridae).jpeg"), 
+	            "NonEnvelopedVideo\\Rabies.mp4"
 	        );
 	        NEVmenu.addNonEnvelopedVirus(rabies);
 		for (NonEnvelopedVirus virus : NEVmenu.getVirusInMenu()) {

@@ -2,6 +2,7 @@ package application;
 
 import java.util.ArrayList;
 
+import DetailPage.NonEnvelopedVirusDemo;
 import DetailPage.NonEnvelopedVirusInfo;
 import DetailPage.NonEnvelopedVirusStatistics;
 import Host.Host;
@@ -172,6 +173,7 @@ public class NonEnvelopedPage {
             demoButton.setMaxWidth(Double.MAX_VALUE);
             demoButton.setMaxHeight(Double.MAX_VALUE);
             demoButton.setOnAction(e -> {
+            	new NonEnvelopedVirusDemo(virus, this, getHostServices()).show();
                 stage.close(); // Hide the NonEnvelopedPage
             });
 
