@@ -2,6 +2,7 @@ package application;
 
 import java.util.ArrayList;
 
+import DetailPage.EnvelopedVirusDemo;
 import DetailPage.EnvelopedVirusInfo;
 import DetailPage.EnvelopedVirusStatistics;
 import Host.Host;
@@ -172,7 +173,7 @@ public class EnvelopedPage {
             demoButton.setMaxWidth(Double.MAX_VALUE);
             demoButton.setMaxHeight(Double.MAX_VALUE);
             demoButton.setOnAction(e -> {
-                //new VirusEntryVisualization(virus, this, null, getHostServices()).show();
+                new EnvelopedVirusDemo(virus, this, getHostServices()).show();
                 stage.close(); // Hide the EnvelopedPage
             });
 
