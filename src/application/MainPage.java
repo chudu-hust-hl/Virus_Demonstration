@@ -1,6 +1,7 @@
 package application;
 
 import java.util.Arrays;
+import java.util.Optional;
 
 import javax.swing.JFrame;
 
@@ -12,7 +13,10 @@ import VirusMenu.NonEnvelopedVirusMenu;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -79,7 +83,17 @@ public class MainPage extends Application {
         envelopedVirusButton.setOnAction(e -> showEnvelopedPage());
         nonEnvelopedVirusButton.setOnAction(e -> showNonEnvelopedPage());
         helpButton.setOnAction(e -> showHelpPage());
-        quitButton.setOnAction(e -> closeMainPage());
+        quitButton.setOnAction(e -> {
+            Alert alert = new Alert(AlertType.CONFIRMATION);
+            alert.setTitle("Confirm Exit");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to quit?");
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                closeMainPage();
+            }
+        });
 
         // Add components to a VBox
         VBox vbox = new VBox(10);
