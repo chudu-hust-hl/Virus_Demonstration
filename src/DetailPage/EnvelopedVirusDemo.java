@@ -17,6 +17,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
 public class EnvelopedVirusDemo {
@@ -43,7 +45,8 @@ public class EnvelopedVirusDemo {
         titleBox.setAlignment(Pos.CENTER);
         titleBox.setPadding(new Insets(10));
         Label titleLabel = new Label("Virus Infection Process: " + virus.getName());
-        titleLabel.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
+        titleLabel.setFont(new Font(30));
+        titleLabel.setTextFill(Color.INDIGO);
         titleBox.getChildren().add(titleLabel);
         root.setTop(titleBox);
 

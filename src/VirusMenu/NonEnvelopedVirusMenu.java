@@ -1,6 +1,8 @@
 package VirusMenu;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 import javax.swing.JOptionPane;
 
@@ -62,6 +64,16 @@ public class NonEnvelopedVirusMenu {
             }
         }
         return searchResults;
+    }
+	
+	// New method to sort viruses by name
+    public void sortVirusesByName() {
+        Collections.sort(virusInMenu, new Comparator<NonEnvelopedVirus>() {
+            @Override
+            public int compare(NonEnvelopedVirus v1, NonEnvelopedVirus v2) {
+                return v1.getName().compareToIgnoreCase(v2.getName());
+            }
+        });
     }
 	
 	public NonEnvelopedVirus getVirusByName(String name) {

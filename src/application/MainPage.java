@@ -223,6 +223,8 @@ public class MainPage extends Application {
         for (EnvelopedVirus virus : EVmenu.getVirusInMenu()) {
         	EnvelopedVirus.addVirusToHost(virus.getName(), virus.getHostRange(), hostList);
         }
+        
+        EVmenu.sortVirusesByName();
     }
 
 
@@ -381,6 +383,7 @@ public class MainPage extends Application {
 		for (NonEnvelopedVirus virus : NEVmenu.getVirusInMenu()) {
         	EnvelopedVirus.addVirusToHost(virus.getName(), virus.getHostRange(), hostList);
         }
+		NEVmenu.sortVirusesByName();
 	}
     
     public static void main(String[] args) {
