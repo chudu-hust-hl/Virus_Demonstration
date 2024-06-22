@@ -127,7 +127,7 @@ public class HelpPage {
                 text = "The Virus Demonstration application allows users to explore the structures and behaviors of different types of viruses.\n\n"
                 		+ "To find the virus, users need to choose whether you want to investigate Enveloped virus or Non-enveloped virus"
                 		+ "Then you can search for the virus you want or scroll the screen to find for you need \n\n"
-                		+ "In the virus demonstration, you can find the \"INFECTING\" button to see the demonstration of infecting host cell progress";
+                		+ "In the virus demonstration, you can find the \"DEMONSTRATION\" button to see the demonstration of infecting host cell progress";
                 mainBox.setText(text);
                 mainBox.setVisible(true);
                 mainBox.setEditable(false);
@@ -186,7 +186,7 @@ public class HelpPage {
                 textFlow.setVisible(true);
                 break;
             case "Resources":
-            	text = "We have learnt from bla bla";
+            	text = "We have learnt from many sources";
             	mainBox.setText(text);
                 mainBox.setVisible(true);
                 mainBox.setEditable(false);
